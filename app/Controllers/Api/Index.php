@@ -106,6 +106,7 @@ class Index extends Controller
     public function getCustomProduct()
     {
         $itemUrls = [
+            'data' =>
             [
                 'item_url' => 'https://item.jd.com/100008920641.html',
                 'short_url' => 'https://u.jd.com/u9tjDSr',
