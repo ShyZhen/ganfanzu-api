@@ -46,9 +46,9 @@ class Index extends Controller
      */
     public function getList()
     {
-        $platform = $_POST['platform'];
-        $query = $_POST['query'];
-        $page = (int) $_POST['page'] ?: 1;
+        $platform = $this->request('platform');
+        $query = $this->request('query');
+        $page = (int) $this->request('page') ?: 1;
 
         if (!in_array($platform, ['jd', 'pdd'])) {
             return $this->jsonResponse([], false, 'no support this platform');
@@ -77,7 +77,7 @@ class Index extends Controller
      */
     public function getLink()
     {
-        $query = $_POST['item_url'];
+        $query = $this->request('item_url');
 
         try {
             $api = 'cps-mesh.cpslink.links.post';
@@ -141,6 +141,19 @@ class Index extends Controller
         return $this->jsonResponse($itemUrls);
     }
 
+    private function request($key, $default = '')
+    {
+        $raw = @file_get_contents('php://input');
+        $bodyData = json_decode($raw, true);
+
+        $data = $default;
+        if (key_exists($key, $bodyData)) {
+            $data = $bodyData[$key];
+        }
+
+        return $data;
+    }
+
     /**
      * 统一输出
      *
@@ -173,8 +186,8 @@ class Index extends Controller
      */
     public function getDetail()
     {
-        $platform = $_POST['platform'];
-        $query = $_POST['item_id'];
+        $platform = $this->request('platform');
+        $query = $this->request('item_id');
 
         if (!in_array($platform, ['jd', 'pdd'])) {
             return $this->jsonResponse([], false, 'no support this platform');
@@ -207,7 +220,7 @@ class Index extends Controller
     public function linkHandle($itemUrl)
     {
         if (!$itemUrl) {
-            $itemUrl = $_POST['item_url'];
+            $itemUrl = $this->request('item_url');
         }
 
         try {
