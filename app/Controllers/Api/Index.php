@@ -109,6 +109,7 @@ class Index extends Controller
             [
                 'item_url' => 'https://item.jd.com/100008920641.html',
                 'short_url' => 'https://u.jd.com/u9tjDSr',
+                'seller_name' => '京东自营',
                 'product_title' => '卫龙魔芋爽 辣条 休闲零食 办公室零食 香辣素毛肚魔芋爽大礼包600g/袋装',
                 'product_main_picture' => 'https://img14.360buyimg.com/pop/jfs/t1/160412/29/3705/134092/6006ab1aE9214ba99/edc6a1f77440f082.jpg',
                 'product_original_price' => '39.9',
@@ -119,6 +120,7 @@ class Index extends Controller
             [
                 'item_url' => 'https://item.jd.com/64502249626.html',
                 'short_url' => 'https://u.jd.com/uRtHQ3T',
+                'seller_name' => '京东自营',
                 'product_title' => '金磨坊 网红辣条零食大礼包 网红同款大辣片辣丝儿童食品 童年美味的小零食 【掌柜荐】网红大面筋70*10袋-加购下单发11包',
                 'product_main_picture' => 'https://img.duomai.com/20210222100214_qohjlddjc4.jpg',
                 'product_original_price' => '28.8',
@@ -129,6 +131,7 @@ class Index extends Controller
             [
                 'item_url' => 'https://item.jd.com/48986926527.html',
                 'short_url' => 'https://u.jd.com/u3tNVY9',
+                'seller_name' => '京东自营',
                 'product_title' => '【2瓶装】川娃子烧椒酱炭烧辣椒酱特辣 虎皮青椒下饭菜剁椒酱四川农家自制拌面酱蒜蓉辣酱',
                 'product_main_picture' => 'https://img14.360buyimg.com/pop/jfs/t1/141838/5/1296/265247/5ef19817E67f361fb/dd8b70e2ff57d622.jpg',
                 'product_original_price' => '37.6',
