@@ -35,4 +35,47 @@ class Controller
 //            'debug' => Bootstrap::$config['app_debug']
 //        ));
     }
+
+    /**
+     * 统一输入
+     *
+     * @param $key
+     * @param string $default
+     * @return mixed|string
+     */
+    protected function request($key, $default = '')
+    {
+        $raw = @file_get_contents('php://input');
+        $bodyData = json_decode($raw, true);
+
+        $data = $default;
+        if (key_exists($key, $bodyData)) {
+            $data = $bodyData[$key];
+        }
+
+        return $data;
+    }
+
+    /**
+     * 统一输出
+     *
+     * @param array $data
+     * @param bool $success
+     * @param string $message
+     */
+    protected function jsonResponse(array $data, $success = true, $message = '')
+    {
+        header('Content-Type:application/json');
+        header('Access-Control-Allow-Origin: *');
+        header('Access-Control-Request-Methods:GET, POST, PUT, DELETE, OPTIONS');
+        header('Access-Control-Allow-Headers:x-requested-with,content-type,test-token,test-sessid');
+
+        $data['code'] = 0;
+        // 失败
+        if ($success === false) {
+            $data['code'] = -1;
+            $data['message'] = $message;
+        }
+        echo json_encode($data, JSON_UNESCAPED_UNICODE);
+    }
 }

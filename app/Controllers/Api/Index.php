@@ -14,7 +14,6 @@ namespace App\Controllers\Api;
 use Duomai\CpsClient\Client;
 use App\Controllers\Controller;
 use Library\Bootstrap;
-use Library\Common\Helper;
 
 class Index extends Controller
 {
@@ -47,12 +46,12 @@ class Index extends Controller
      */
     public function getList()
     {
-        $platform = Helper::request('platform');
-        $query = Helper::request('query');
-        $page = (int) Helper::request('page') ?: 1;
+        $platform = $this->request('platform');
+        $query = $this->request('query');
+        $page = (int) $this->request('page') ?: 1;
 
         if (!in_array($platform, ['jd', 'pdd'])) {
-            return Helper::jsonResponse([], false, 'no support this platform');
+            return $this->jsonResponse([], false, 'no support this platform');
         }
 
         try {
@@ -64,20 +63,21 @@ class Index extends Controller
                 'order_field' => 'volume ',  // 排序字段 commission_rate 佣金比例 price价格 volume 销量
            ]);
 
-            return Helper::jsonResponse($data);
+            return $this->jsonResponse($data);
 
         } catch (\Exception $exception) {
-            return Helper::jsonResponse([], false, 'network error');
+            return $this->jsonResponse([], false, 'network error');
         }
     }
 
     /**
      * 转链 返回小程序url
      *
+     * @return void
      */
     public function getLink()
     {
-        $query = Helper::request('item_url');
+        $query = $this->request('item_url');
 
         try {
             $api = 'cps-mesh.cpslink.links.post';
@@ -92,10 +92,10 @@ class Index extends Controller
                 'original' => 1
             ]);
 
-            return Helper::jsonResponse($data);
+            return $this->jsonResponse($data);
 
         } catch (\Exception $exception) {
-            return Helper::jsonResponse([], false, 'network error');
+            return $this->jsonResponse([], false, 'network error');
         }
     }
 
@@ -138,9 +138,8 @@ class Index extends Controller
             ]
         ];
 
-        return Helper::jsonResponse($itemUrls);
+        return $this->jsonResponse($itemUrls);
     }
-
 
 
 
@@ -150,11 +149,11 @@ class Index extends Controller
      */
     public function getDetail()
     {
-        $platform = Helper::request('platform');
-        $query = Helper::request('item_id');
+        $platform = $this->request('platform');
+        $query = $this->request('item_id');
 
         if (!in_array($platform, ['jd', 'pdd'])) {
-            return Helper::jsonResponse([], false, 'no support this platform');
+            return $this->jsonResponse([], false, 'no support this platform');
         }
 
         try {
@@ -168,9 +167,9 @@ class Index extends Controller
                 'id' => $query
             ]);
 
-            return Helper::jsonResponse($data);
+            return $this->jsonResponse($data);
         } catch (\Exception $exception) {
-            return Helper::jsonResponse([], false, 'network error');
+            return $this->jsonResponse([], false, 'network error');
         }
     }
 
@@ -184,7 +183,7 @@ class Index extends Controller
     public function linkHandle($itemUrl)
     {
         if (!$itemUrl) {
-            $itemUrl = Helper::request('item_url');
+            $itemUrl = $this->request('item_url');
         }
 
         try {
@@ -194,9 +193,9 @@ class Index extends Controller
                 'url' => $itemUrl
             ]);
 
-            return Helper::jsonResponse($data);
+            return $this->jsonResponse($data);
         } catch (\Exception $exception) {
-            return Helper::jsonResponse([], false, 'network error');
+            return $this->jsonResponse([], false, 'network error');
         }
     }
 }
