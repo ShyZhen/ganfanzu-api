@@ -105,8 +105,7 @@ class Index extends Controller
      */
     public function getCustomProduct()
     {
-        $itemUrls = [
-            'data' =>
+        $itemUrls = ['data' => [
             [
                 'item_url' => 'https://item.jd.com/100008920641.html',
                 'short_url' => 'https://u.jd.com/u9tjDSr',
@@ -137,7 +136,7 @@ class Index extends Controller
                 'wx_appid' => 'wx91d27dbf599dff74',
                 'wx_path' => 'pages/union/proxy/proxy?spreadUrl=https%3A%2F%2Funion-click.jd.com%2Fjdc%3Fe%3D16282%26p%3DAyIGZRtYFQsbBF0TWxcyFw5dElwdARUDVh1rUV1KWQorAlBHU0VeBUVNR0ZbSkAOClBMW0seUh0LFQ9WHF8WBA1eEEcGJVxnWlQbRRJ6cUInZBxARUBPFkQfbFQeC2UcXhIEGw5QH2sVBREOVitZHQQbAFMYWCUCEzcUdV0SBBUPUitaJQIVB1ASXhcHEwZcHVslAhoAZc%252FOvtqZkAdaGcyyt9H%252FtWslMhE3VRxYHAEiN1UrWCVcfAYGG1kQAEIAO0EGUVgRUwoeNRUCGgJcHV0TACIFVBpZFw%253D%253D&EA_PTAG=17078.27.503',
             ]
-        ];
+        ]];
 
         return $this->jsonResponse($itemUrls);
     }
