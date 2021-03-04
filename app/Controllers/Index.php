@@ -16,16 +16,10 @@ class Index extends Controller
     /**
      * @Author huaixiu.zhen
      * http://litblc.com
-     *
-     * @throws \Twig_Error_Loader
-     * @throws \Twig_Error_Runtime
-     * @throws \Twig_Error_Syntax
      */
     public function index()
     {
-        // ?controller=index&action=index
-        $data = ['data' => 'welcome to fakePHP'];
-        echo $this->view->render('welcome.html', $data);
+        echo '?controller=index&action=index';
     }
 
 }

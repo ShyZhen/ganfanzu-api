@@ -54,7 +54,7 @@ class Bootstrap
             $pathInfo = isset($_SERVER['PATH_INFO']) ? trim($_SERVER['PATH_INFO'], '/') : trim($_SERVER['REDIRECT_PATH_INFO'], '/');
             $baseSpace = 'App\Controllers\\';
             $controller = $baseSpace . 'Index';
-            $action = 'index';print_r($pathInfo);echo 'ok';
+            $action = 'index';
             if (mb_strlen($pathInfo)) {
                 $route = explode('/', $pathInfo);
                 if (count($route) == 3) {

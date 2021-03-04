@@ -30,10 +30,10 @@ class Index extends Controller
 
         // 初始化 配置信息
         $config = [
-            'host' => $this->config->host,
+            'host' => $this->config['host'],
             'auth' => [
-                'app_key' => $this->config->appKey,
-                'app_secret' => $this->config->appSecret,
+                'app_key' => $this->config['appKey'],
+                'app_secret' => $this->config['appSecret'],
             ]
         ];
         if (!$this->client) {
@@ -111,7 +111,7 @@ class Index extends Controller
             }
 
             $data = $this->client->Request($api, [
-                'site_id' => $this->siteId,
+                'site_id' => $this->config['siteId'],
                 'url' => $query,    //'https://item.jd.com/100014809454.html'
                 'original' => 1
             ]);
