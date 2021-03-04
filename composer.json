@@ -1,0 +1,24 @@
+{
+    "name": "shyzhen/ganfanzu-api",
+    "description": "get duomai product mp-path",
+    "type": "project",
+    "require": {
+        "php": ">=7.0",
+        "twig/twig": "3.x-dev",
+        "duomai/cps-client": "^1.0",
+        "ext-json": "*"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "zhenhuaixiu",
+            "email": "zhenhuaixiu@sznews.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    }
+}

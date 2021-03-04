@@ -1,0 +1,8 @@
+/tmp/cache/view
+/tmp/log
+/tmp/session
+/vendor
+/config/config.php
+/node_modules
+/.idea
+composer.lock

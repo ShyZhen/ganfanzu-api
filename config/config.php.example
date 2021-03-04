@@ -1,0 +1,26 @@
+<?php
+/**
+ * @Author huaixiu.zhen
+ * http://litblc.com
+ * User: z00455118
+ * Date: 2018/8/30
+ */
+
+return [
+    'app_debug' => true,
+    'type' => 'mysqli',
+    'mysql' => [
+        'host' => 'localhost',
+        'port' => '3306',
+        'user' => 'username',
+        'password' => '****',
+        'charset' => 'utf8',
+        'database' => 'database',
+    ],
+    'duomai' => [
+        'siteId' => '450533',  // 多麦推广位ID 干饭组shop
+        'host' => 'https://open.duomai.com/apis',
+        'appKey' => '',
+        'appSecret' => '',
+    ]
+];
