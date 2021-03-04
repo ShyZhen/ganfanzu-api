@@ -151,6 +151,9 @@ class Index extends Controller
     private function jsonResponse(array $data, $success = true, $message = '')
     {
         header('Content-Type:application/json');
+        header('Access-Control-Allow-Origin: *');
+        header('Access-Control-Request-Methods:GET, POST, PUT, DELETE, OPTIONS');
+        header('Access-Control-Allow-Headers:x-requested-with,content-type,test-token,test-sessid');
 
         $data['code'] = 0;
         // 失败
