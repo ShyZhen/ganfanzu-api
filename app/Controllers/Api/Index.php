@@ -55,6 +55,10 @@ class Index extends Controller
         if ($platform == 'jd') {
             return $this->getJingFenList();
         }
+        // pdd 使用推荐-实时热销接口
+        if ($platform == 'pdd') {
+            return $this->getPddRecommendList();
+        }
 
         try {
             $api = "cps-mesh.cpslink.{$platform}.products.get";
