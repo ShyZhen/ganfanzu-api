@@ -100,6 +100,29 @@ class Index extends Controller
     }
 
     /**
+     * 获取拼多多实时热销榜
+     */
+    public function getPddTopList()
+    {
+        $channelType = $this->request('channel_type', 1);    // 类型 1-实时热销榜；2-实时收益榜
+        $page = (int) $this->request('page') ?: 1;
+
+        try {
+            $api = 'cps-mesh.cpslink.pdd.top-products.get';
+
+            $data = $this->client->Request($api, [
+                'channel_type' => $channelType,
+                'page' => $page,
+            ]);
+
+            return $this->jsonResponse($data);
+
+        } catch (\Exception $exception) {
+            return $this->jsonResponse([], false, 'network error');
+        }
+    }
+
+    /**
      * 转链 返回小程序url
      *
      * @return void
