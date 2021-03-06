@@ -102,6 +102,29 @@ class Index extends Controller
     /**
      * 获取拼多多实时热销榜
      */
+    public function getPddRecommendList()
+    {
+        $channelType = $this->request('channel_type', 1);    // 推荐类型 0-1.9包邮, 1-今日爆款, 2-品牌清仓,3-相似商品推荐,4-猜你喜欢,5-实时热销,6-实时收益,7-今日畅销,8-高佣榜单
+        $page = (int) $this->request('page') ?: 1;
+
+        try {
+            $api = 'cps-mesh.cpslink.pdd.recommend-products.get';
+
+            $data = $this->client->Request($api, [
+                'channel_type' => $channelType,
+                'page' => $page,
+            ]);
+
+            return $this->jsonResponse($data);
+
+        } catch (\Exception $exception) {
+            return $this->jsonResponse([], false, 'network error');
+        }
+    }
+
+    /**
+     * 获取拼多多实时热销榜（接口不稳定不推荐使用）
+     */
     public function getPddTopList()
     {
         $channelType = $this->request('channel_type', 1);    // 类型 1-实时热销榜；2-实时收益榜
