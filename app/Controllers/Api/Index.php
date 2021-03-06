@@ -60,8 +60,10 @@ class Index extends Controller
             $data = $this->client->Request($api, [
                 'query' => $query,
                 'page' => $page,
+                'is_hot' => 1,
+                'is_coupon' => 1,
                 'order_field' => 'volume ',  // 排序字段 commission_rate 佣金比例 price价格 volume 销量
-           ]);
+            ]);
 
             return $this->jsonResponse($data);
 
