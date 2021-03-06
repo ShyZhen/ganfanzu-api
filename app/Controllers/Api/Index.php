@@ -52,7 +52,7 @@ class Index extends Controller
         }
 
         // jd 使用京粉接口，不再使用通用接口，通用接口价格有问题，没有优惠卷领取
-        if ($platform == 'js') {
+        if ($platform == 'jd') {
             return $this->getJingFenList();
         }
 
