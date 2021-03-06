@@ -80,7 +80,7 @@ class Index extends Controller
      */
     public function getJingFenList()
     {
-        $categoryId = $this->request('category_id', 1);
+        $categoryId = $this->request('category_id', 28);
         $page = (int) $this->request('page') ?: 1;
 
         try {
