@@ -42,8 +42,29 @@ class Index extends Controller
     }
 
     /**
-     * 获取商品列表
+     * 获取京粉商品列表
      */
+    public function getJingFenList()
+    {
+        $categoryId = $this->request('category_id', 1);
+        $page = (int) $this->request('page') ?: 1;
+
+        try {
+            $api = 'cps-mesh.cpslink.jd.jingfen-product.get';
+
+            $data = $this->client->Request($api, [
+                'category_id' => $categoryId,
+                'page' => $page,
+                'order_field' => 'commission_rate  ',  // 排序字段 commission_rate 佣金比例 price价格 volume 销量
+            ]);
+
+            return $this->jsonResponse($data);
+
+        } catch (\Exception $exception) {
+            return $this->jsonResponse([], false, 'network error');
+        }
+    }
+
     public function getList()
     {
         $platform = $this->request('platform');
@@ -62,6 +83,7 @@ class Index extends Controller
                 'page' => $page,
                 'is_hot' => 1,
                 'is_coupon' => 1,
+                'max_coupon' => 1,
                 'order_field' => 'volume ',  // 排序字段 commission_rate 佣金比例 price价格 volume 销量
             ]);
 
@@ -71,6 +93,7 @@ class Index extends Controller
             return $this->jsonResponse([], false, 'network error');
         }
     }
+
 
     /**
      * 转链 返回小程序url
