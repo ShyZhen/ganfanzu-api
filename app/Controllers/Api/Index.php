@@ -41,6 +41,40 @@ class Index extends Controller
         }
     }
 
+    public function getList()
+    {
+        $platform = $this->request('platform');
+        $query = $this->request('query');
+        $page = (int) $this->request('page') ?: 1;
+
+        if (!in_array($platform, ['jd', 'pdd'])) {
+            return $this->jsonResponse([], false, 'no support this platform');
+        }
+
+        // jd 使用京粉接口，不再使用通用接口，通用接口价格有问题，没有优惠卷领取
+        if ($platform == 'js') {
+            return $this->getJingFenList();
+        }
+
+        try {
+            $api = "cps-mesh.cpslink.{$platform}.products.get";
+
+            $data = $this->client->Request($api, [
+                'query' => $query,
+                'page' => $page,
+                'is_hot' => 1,
+                'is_coupon' => 1,
+                'max_coupon' => 1,
+                'order_field' => 'volume ',  // 排序字段 commission_rate 佣金比例 price价格 volume 销量
+            ]);
+
+            return $this->jsonResponse($data);
+
+        } catch (\Exception $exception) {
+            return $this->jsonResponse([], false, 'network error');
+        }
+    }
+
     /**
      * 获取京粉商品列表
      */
@@ -64,36 +98,6 @@ class Index extends Controller
             return $this->jsonResponse([], false, 'network error');
         }
     }
-
-    public function getList()
-    {
-        $platform = $this->request('platform');
-        $query = $this->request('query');
-        $page = (int) $this->request('page') ?: 1;
-
-        if (!in_array($platform, ['jd', 'pdd'])) {
-            return $this->jsonResponse([], false, 'no support this platform');
-        }
-
-        try {
-            $api = "cps-mesh.cpslink.{$platform}.products.get";
-
-            $data = $this->client->Request($api, [
-                'query' => $query,
-                'page' => $page,
-                'is_hot' => 1,
-                'is_coupon' => 1,
-                'max_coupon' => 1,
-                'order_field' => 'volume ',  // 排序字段 commission_rate 佣金比例 price价格 volume 销量
-            ]);
-
-            return $this->jsonResponse($data);
-
-        } catch (\Exception $exception) {
-            return $this->jsonResponse([], false, 'network error');
-        }
-    }
-
 
     /**
      * 转链 返回小程序url
