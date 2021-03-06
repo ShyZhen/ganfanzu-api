@@ -107,6 +107,17 @@ class Index extends Controller
     {
         $itemUrls = ['data' => [
             [
+                'item_url' => 'https://item.jd.com/65443604411.html',
+                'short_url' => 'https://u.jd.com/uJu6TNd',
+                'seller_name' => '京东超市',
+                'product_title' => 'RIO锐澳樱花风味微醺系列鸡尾酒330ml*10罐（七种口味）',
+                'product_main_picture' => 'https://img14.360buyimg.com/pop/jfs/t1/156249/13/11903/95705/603c60c1E7d736c31/a3629165ecea4a0b.jpg',
+                'product_original_price' => '88',
+                'product_coupon_after_price' => '55.4',
+                'wx_appid' => 'wx91d27dbf599dff74',
+                'wx_path' => 'pages/union/proxy/proxy?spreadUrl=https%3A%2F%2Funion-click.jd.com%2Fjdc%3Fe%3D16282%26p%3DAyIGZRhcFgURBFwaWhcyFQNQHlkSAxcCVRtrUV1KWQorAlBHU0VeBUVNR0ZbSkAOClBMW0scXxAHEABUHl4VAg1eEEcGJVtqABcbPVdickUjeDNieW1%252BMkUNbnIeC2UcXhIEGw5QH2sVBREOViteFAEUAFUTWCUCEzcUdV0WBBcGZRprFQUSAl0TWRwLGwFRHGsVChU3gY7wzYmFVRRZgqWnxK37K2slASIHUhhSFjIiB2UYa0tsE1RWSAwRCxRpD0YSFV1VQ1J1WRYGFANdGGsXAxMFVw%253D%253D&EA_PTAG=17078.27.503',
+            ],
+            [
                 'item_url' => 'https://item.jd.com/100008920641.html',
                 'short_url' => 'https://u.jd.com/u9tjDSr',
                 'seller_name' => '京东自营',
