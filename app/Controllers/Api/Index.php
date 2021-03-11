@@ -252,6 +252,17 @@ class Index extends Controller
                 'wx_path' => 'pages/union/proxy/proxy?spreadUrl=https%3A%2F%2Funion-click.jd.com%2Fjdc%3Fe%3D16282%26p%3DAyIGZRtSFwQbBVYTXxMyEgZUGlsUAxsOUR1fJUZNXwtEa0xHV0YXEEULWldTCQQAQB1AWQkFWxQDEwdUGlIcBhQDSkIeSV8iAF1nPWIKRHg1axNhQ2YZXUM4Z0QTUVkXaxIHFQFcEl4RMhIAVhJYJQcSAlMfUxEBIgdUKxl715mig4zlwomzN1QrWxICFgVRGlgcChoFVStbHQUi08Cwg56VQEYXwuuw1LipZStrFjISAFYSWCUyEjdWKwV7A0EEXBkJQAd8XQkYElFAUkI7GVkQAhsFUStZFAMQBQ%253D%253D&EA_PTAG=17078.27.503',
             ],
             [
+                'item_url' => 'https://item.jd.com/100006711834.html',
+                'short_url' => 'https://u.jd.com/uaJjyxv',
+                'seller_name' => '京东自营',
+                'product_title' => '青源堂 红枸杞子 500克家庭装 宁夏头茬免洗特级中宁枸杞子茶 滋补品送礼物精洗苟杞子黑枸杞',
+                'product_main_picture' => 'https://img14.360buyimg.com/pop/jfs/t1/159756/3/11754/239736/6046d83dEd651b0b9/2d81199fa87ad24d.jpg',
+                'product_original_price' => '42.9',
+                'product_coupon_after_price' => '36.9',
+                'wx_appid' => 'wx91d27dbf599dff74',
+                'wx_path' => 'pages/union/proxy/proxy?spreadUrl=https%3A%2F%2Funion-click.jd.com%2Fjdc%3Fe%3D16282%26p%3DAyIGZRhfEAMQAFYSWhIyEgZUGloSBBIHXBleJUZNXwtEa0xHV0YXEEULWldTCQQAQB1AWQkFWxQDEwZSHVsVCxACSkIeSV8ich5hRUgGVwA3UAcLAHJ1IEk7VXsbUVkXaxIHFQFcEl4RMhIAVhJYJQcSDlYZUxUBIgdUKw17AhMGVBpbEgYbAmUaaxUFEgNQH18dARoFUR1rFQoVN4GO8M2JhVUUWYKlp8St%252BytrJQEiB1IYUhYyIgdlGGtLbBNUVUtSQQAVaQ9HXktBE1tTdVIWAhICUxtrFwMTBVc%253D&EA_PTAG=17078.27.503',
+            ],
+            [
                 'item_url' => 'https://item.jd.com/64502249626.html',
                 'short_url' => 'https://u.jd.com/uRtHQ3T',
                 'seller_name' => '京东自营',
