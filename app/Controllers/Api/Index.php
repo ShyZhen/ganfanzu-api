@@ -79,6 +79,35 @@ class Index extends Controller
         }
     }
 
+    public function getQueryList()
+    {
+        $platform = $this->request('platform');
+        $query = $this->request('query');
+        $page = (int) $this->request('page') ?: 1;
+
+        if (!in_array($platform, ['jd', 'pdd'])) {
+            return $this->jsonResponse([], false, 'no support this platform');
+        }
+
+        try {
+            $api = "cps-mesh.cpslink.{$platform}.products.get";
+
+            $data = $this->client->Request($api, [
+                'query' => $query,
+                'page' => $page,
+                'is_hot' => 1,
+                'is_coupon' => 1,
+                // 'max_coupon' => 1,
+                'order_field' => 'volume ',  // 排序字段 commission_rate 佣金比例 price价格 volume 销量
+            ]);
+
+            return $this->jsonResponse($data);
+
+        } catch (\Exception $exception) {
+            return $this->jsonResponse([], false, 'network error');
+        }
+    }
+
     /**
      * 获取京粉商品列表
      */
@@ -104,7 +133,7 @@ class Index extends Controller
     }
 
     /**
-     * 获取拼多多实时热销榜
+     * 获取拼多多推荐商品
      */
     public function getPddRecommendList()
     {
@@ -127,7 +156,7 @@ class Index extends Controller
     }
 
     /**
-     * 获取拼多多实时热销榜（接口不稳定不推荐使用）
+     * 获取拼多多爆款排行商品（接口不稳定不推荐使用）
      */
     public function getPddTopList()
     {
@@ -262,28 +291,6 @@ class Index extends Controller
                 'wx_appid' => 'wx91d27dbf599dff74',
                 'wx_path' => 'pages/union/proxy/proxy?spreadUrl=https%3A%2F%2Funion-click.jd.com%2Fjdc%3Fe%3D16282%26p%3DAyIGZRhfEAMQAFYSWhIyEgZUGloSBBIHXBleJUZNXwtEa0xHV0YXEEULWldTCQQAQB1AWQkFWxQDEwZSHVsVCxACSkIeSV8ich5hRUgGVwA3UAcLAHJ1IEk7VXsbUVkXaxIHFQFcEl4RMhIAVhJYJQcSDlYZUxUBIgdUKw17AhMGVBpbEgYbAmUaaxUFEgNQH18dARoFUR1rFQoVN4GO8M2JhVUUWYKlp8St%252BytrJQEiB1IYUhYyIgdlGGtLbBNUVUtSQQAVaQ9HXktBE1tTdVIWAhICUxtrFwMTBVc%253D&EA_PTAG=17078.27.503',
             ],
-            [
-                'item_url' => 'https://item.jd.com/64502249626.html',
-                'short_url' => 'https://u.jd.com/uRtHQ3T',
-                'seller_name' => '京东自营',
-                'product_title' => '金磨坊 网红辣条零食大礼包 网红同款大辣片辣丝儿童食品 童年美味的小零食 【掌柜荐】网红大面筋70*10袋-加购下单发11包',
-                'product_main_picture' => 'https://img.duomai.com/20210222100214_qohjlddjc4.jpg',
-                'product_original_price' => '28.8',
-                'product_coupon_after_price' => '18.8',
-                'wx_appid' => 'wx91d27dbf599dff74',
-                'wx_path' => 'pages/union/proxy/proxy?spreadUrl=https%3A%2F%2Funion-click.jd.com%2Fjdc%3Fe%3D16282%26p%3DAyIGZRNSFgQWBVUSXSUFFwNUGFgQChUEUisfSlpMWGVCHlBDUAxLBQBNXURQAURETlcNVQtHRU1HRltKQh5JXxxFD19XEgcWBlYYXh0FEQBCW1diAHJhImgOV3V7XTJsAmpVdXU2ZCxhRBtiDXwkdV91WTEZOGl1SF4WfgRqa3EGHEU%252BSmltZzZ7U3Z7cl8haCRWdXtjNW8SYlV1TzJkO2FyUFADcBBmS3FGImk8ZnVxeBF7BGZwcmQiXDgXVEJzJmgYY3t2YCJ4LFBia1EzbChuQGp%252BB30sTHVQcwpBCGJKchNXbmtiampPFWQGdmdpHVRiXBdHYm4oGx9DDh43Uh5cEwsbAlErWxIBGwRlGVMTCxcGURhrFQMiRjsdWhYEFA5lGmsVBRICXB5YHAMVBFweaxUKFTeBjvDNiYVVFFmCpafErfsrayUBIgdSGFIWMiIHVitYJVx8BgYYUhcCQQY7QQZRWVNYEUI1FQIaAlIaWBYFIgVUGlkX&EA_PTAG=17078.27.503',
-            ],
-            [
-                'item_url' => 'https://item.jd.com/48986926527.html',
-                'short_url' => 'https://u.jd.com/u3tNVY9',
-                'seller_name' => '京东自营',
-                'product_title' => '【2瓶装】川娃子烧椒酱炭烧辣椒酱特辣 虎皮青椒下饭菜剁椒酱四川农家自制拌面酱蒜蓉辣酱',
-                'product_main_picture' => 'https://img14.360buyimg.com/pop/jfs/t1/141838/5/1296/265247/5ef19817E67f361fb/dd8b70e2ff57d622.jpg',
-                'product_original_price' => '37.6',
-                'product_coupon_after_price' => '27.6',
-                'wx_appid' => 'wx91d27dbf599dff74',
-                'wx_path' => 'pages/union/proxy/proxy?spreadUrl=https%3A%2F%2Funion-click.jd.com%2Fjdc%3Fe%3D16282%26p%3DAyIGZRtYFQsbBF0TWxcyFw5dElwdARUDVh1rUV1KWQorAlBHU0VeBUVNR0ZbSkAOClBMW0seUh0LFQ9WHF8WBA1eEEcGJVxnWlQbRRJ6cUInZBxARUBPFkQfbFQeC2UcXhIEGw5QH2sVBREOVitZHQQbAFMYWCUCEzcUdV0SBBUPUitaJQIVB1ASXhcHEwZcHVslAhoAZc%252FOvtqZkAdaGcyyt9H%252FtWslMhE3VRxYHAEiN1UrWCVcfAYGG1kQAEIAO0EGUVgRUwoeNRUCGgJcHV0TACIFVBpZFw%253D%253D&EA_PTAG=17078.27.503',
-            ]
         ]];
 
         return $this->jsonResponse($itemUrls);
