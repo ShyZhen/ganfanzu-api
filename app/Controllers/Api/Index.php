@@ -21,6 +21,8 @@ class Index extends Controller
 
     private $config;
 
+    private $allowPlatform = ['jd', 'pdd'];
+
 
     public function __construct()
     {
@@ -47,7 +49,7 @@ class Index extends Controller
         $query = $this->request('query');
         $page = (int) $this->request('page') ?: 1;
 
-        if (!in_array($platform, ['jd', 'pdd'])) {
+        if (!in_array($platform, $this->allowPlatform)) {
             return $this->jsonResponse([], false, 'no support this platform');
         }
 
@@ -85,7 +87,7 @@ class Index extends Controller
         $query = $this->request('query');
         $page = (int) $this->request('page') ?: 1;
 
-        if (!in_array($platform, ['jd', 'pdd'])) {
+        if (!in_array($platform, $this->allowPlatform)) {
             return $this->jsonResponse([], false, 'no support this platform');
         }
 
@@ -307,7 +309,7 @@ class Index extends Controller
         $platform = $this->request('platform');
         $query = $this->request('item_id');
 
-        if (!in_array($platform, ['jd', 'pdd'])) {
+        if (!in_array($platform, $this->allowPlatform)) {
             return $this->jsonResponse([], false, 'no support this platform');
         }
 
