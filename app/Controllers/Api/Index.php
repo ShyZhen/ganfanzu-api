@@ -21,7 +21,7 @@ class Index extends Controller
 
     private $config;
 
-    private $allowPlatform = ['jd', 'pdd'];
+    private $allowPlatform = ['jd', 'pdd', 'suning', 'youzan', 'alimama', 'kaola', 'vip', 'b1688'];
 
 
     public function __construct()
