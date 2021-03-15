@@ -139,7 +139,7 @@ class Index extends Controller
      */
     public function getPddRecommendList()
     {
-        $channelType = $this->request('channel_type', 2);    // 推荐类型 0-1.9包邮, 1-今日爆款, 2-品牌清仓,3-相似商品推荐,4-猜你喜欢,5-实时热销,6-实时收益,7-今日畅销,8-高佣榜单
+        $channelType = $this->request('channel_type', 6);    // 推荐类型 0-1.9包邮, 1-今日爆款, 2-品牌清仓,3-相似商品推荐,4-猜你喜欢,5-实时热销,6-实时收益,7-今日畅销,8-高佣榜单
         $page = (int) $this->request('page') ?: 1;
 
         try {
