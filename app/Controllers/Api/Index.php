@@ -24,7 +24,9 @@ class Index extends Controller
 
     private $allowPlatform = ['jd', 'pdd', 'suning', 'youzan', 'alimama', 'kaola', 'vip', 'b1688'];
 
+    // 缓存相关
     private $pre = 'ganfanzu:lists';
+    private $ttl = 7200;
 
     public function __construct()
     {
@@ -45,6 +47,10 @@ class Index extends Controller
         }
     }
 
+    /**
+     * 获取默认商品列表
+     * platform
+     */
     public function getList()
     {
         $platform = $this->request('platform');
@@ -63,6 +69,10 @@ class Index extends Controller
         }
     }
 
+    /**
+     * 搜索列表
+     * platform query
+     */
     public function getQueryList()
     {
         $platform = $this->request('platform');
@@ -113,7 +123,7 @@ class Index extends Controller
             $data = $this->client->Request($api, [
                 'category_id' => $categoryId,
                 'page' => $page,
-                'order_field' => 'commission_rate  ',  // 排序字段 commission_rate 佣金比例 price价格 volume 销量
+                'order_field' => 'commission_rate',  // 排序字段 commission_rate 佣金比例 price价格 volume 销量
             ]);
 
             // redis
@@ -354,10 +364,9 @@ class Index extends Controller
      */
     private function redisSet($key, $data)
     {
-        $ttl = 7200;
         $cache = new redisLib();
         $data = json_encode($data, JSON_UNESCAPED_UNICODE);
-        $cache->redis->set($key, $data, 'EX', $ttl);
+        $cache->redis->set($key, $data, 'EX', $this->ttl);
     }
 
 
