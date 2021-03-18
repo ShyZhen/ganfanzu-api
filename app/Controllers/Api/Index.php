@@ -333,6 +333,35 @@ class Index extends Controller
         return $this->jsonResponse($itemUrls);
     }
 
+    /**
+     * 列表加入缓存，2小时失效
+     *
+     * @param $key
+     * @return string|null
+     */
+    private function redisGet($key)
+    {
+        $cache = new redisLib();
+        return $cache->redis->get($key);
+    }
+
+    /**
+     * 列表加入缓存，2小时失效
+     *
+     * @param $key
+     * @param $data
+     * @return string|null
+     */
+    private function redisSet($key, $data)
+    {
+        $ttl = 7200;
+        $cache = new redisLib();
+        $data = json_encode($data, JSON_UNESCAPED_UNICODE);
+        $cache->redis->set($key, $data, 'EX', $ttl);
+    }
+
+
+
 
 
 
@@ -389,20 +418,5 @@ class Index extends Controller
         } catch (\Exception $exception) {
             return $this->jsonResponse([], false, 'network error');
         }
-    }
-
-
-    protected function redisGet($key)
-    {
-        $cache = new redisLib();
-        return $cache->redis->get($key);
-    }
-
-    private function redisSet($key, $data)
-    {
-        $ttl = 7200;
-        $cache = new redisLib();
-        $data = json_encode($data, JSON_UNESCAPED_UNICODE);
-        $cache->redis->set($key, $data, 'EX', $ttl);
     }
 }
