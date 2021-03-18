@@ -6,7 +6,8 @@
         "php": ">=7.0",
         "twig/twig": "3.x-dev",
         "duomai/cps-client": "^1.0",
-        "ext-json": "*"
+        "ext-json": "*",
+        "predis/predis": "2.0.x-dev"
     },
     "license": "MIT",
     "authors": [

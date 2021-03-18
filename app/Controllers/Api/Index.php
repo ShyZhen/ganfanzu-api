@@ -13,6 +13,7 @@ namespace App\Controllers\Api;
 
 use Duomai\CpsClient\Client;
 use App\Controllers\Controller;
+use Lib\cache\redisLib;
 use Library\Bootstrap;
 
 class Index extends Controller
@@ -23,6 +24,7 @@ class Index extends Controller
 
     private $allowPlatform = ['jd', 'pdd', 'suning', 'youzan', 'alimama', 'kaola', 'vip', 'b1688'];
 
+    private $pre = 'ganfanzu:lists';
 
     public function __construct()
     {
@@ -46,8 +48,6 @@ class Index extends Controller
     public function getList()
     {
         $platform = $this->request('platform');
-        $query = $this->request('query');
-        $page = (int) $this->request('page') ?: 1;
 
         if (!in_array($platform, $this->allowPlatform)) {
             return $this->jsonResponse([], false, 'no support this platform');
@@ -60,24 +60,6 @@ class Index extends Controller
         // pdd 使用推荐-实时热销接口
         if ($platform == 'pdd') {
             return $this->getPddRecommendList();
-        }
-
-        try {
-            $api = "cps-mesh.cpslink.{$platform}.products.get";
-
-            $data = $this->client->Request($api, [
-                'query' => $query,
-                'page' => $page,
-                'is_hot' => 1,
-                'is_coupon' => 1,
-                'max_coupon' => 1,
-                'order_field' => 'volume ',  // 排序字段 commission_rate 佣金比例 price价格 volume 销量
-            ]);
-
-            return $this->jsonResponse($data);
-
-        } catch (\Exception $exception) {
-            return $this->jsonResponse([], false, 'network error');
         }
     }
 
@@ -118,6 +100,13 @@ class Index extends Controller
         $categoryId = $this->request('category_id', 28);
         $page = (int) $this->request('page') ?: 1;
 
+        // redis缓存
+        $key = $this->pre.':'.__FUNCTION__.':'.md5($categoryId.'-'.$page);
+        $data = $this->redisGet($key);
+        if (!is_null($data)) {
+            return $this->jsonResponse(json_decode($data, true));
+        }
+
         try {
             $api = 'cps-mesh.cpslink.jd.jingfen-product.get';
 
@@ -126,6 +115,9 @@ class Index extends Controller
                 'page' => $page,
                 'order_field' => 'commission_rate  ',  // 排序字段 commission_rate 佣金比例 price价格 volume 销量
             ]);
+
+            // redis
+            $this->redisSet($key, $data);
 
             return $this->jsonResponse($data);
 
@@ -142,6 +134,13 @@ class Index extends Controller
         $channelType = $this->request('channel_type', 6);    // 推荐类型 0-1.9包邮, 1-今日爆款, 2-品牌清仓,3-相似商品推荐,4-猜你喜欢,5-实时热销,6-实时收益,7-今日畅销,8-高佣榜单
         $page = (int) $this->request('page') ?: 1;
 
+        // redis缓存
+        $key = $this->pre.':'.__FUNCTION__.':'.md5($channelType.'-'.$page);
+        $data = $this->redisGet($key);
+        if (!is_null($data)) {
+            return $this->jsonResponse(json_decode($data, true));
+        }
+
         try {
             $api = 'cps-mesh.cpslink.pdd.recommend-products.get';
 
@@ -149,6 +148,9 @@ class Index extends Controller
                 'channel_type' => $channelType,
                 'page' => $page,
             ]);
+
+            // redis
+            $this->redisSet($key, $data);
 
             return $this->jsonResponse($data);
 
@@ -387,5 +389,20 @@ class Index extends Controller
         } catch (\Exception $exception) {
             return $this->jsonResponse([], false, 'network error');
         }
+    }
+
+
+    protected function redisGet($key)
+    {
+        $cache = new redisLib();
+        return $cache->redis->get($key);
+    }
+
+    private function redisSet($key, $data)
+    {
+        $ttl = 7200;
+        $cache = new redisLib();
+        $data = json_encode($data, JSON_UNESCAPED_UNICODE);
+        $cache->redis->set($key, $data, 'EX', $ttl);
     }
 }
