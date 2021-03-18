@@ -1,17 +1,20 @@
 <?php
 /**
- * redisLib
- * @author DELL
- * 2021/3/18 14:21
- **/
+ * 数据库类
+ *
+ * @Author huaixiu.zhen
+ * http://litblc.com
+ * User: z00455118
+ * Date: 2018/11/24
+ * Time: 14:11
+ */
 
-namespace Lib\Cache;
-
+namespace Library\DB;
 
 use Library\Bootstrap;
 use Predis\Client;
 
-class RedisLib
+class Redis
 {
     private $drive = 'redis';
 
