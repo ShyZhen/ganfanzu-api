@@ -5,13 +5,13 @@
  * 2021/3/18 14:21
  **/
 
-namespace Lib\cache;
+namespace Lib\Cache;
 
 
 use Library\Bootstrap;
 use Predis\Client;
 
-class redisLib
+class RedisLib
 {
     private $drive = 'redis';
 

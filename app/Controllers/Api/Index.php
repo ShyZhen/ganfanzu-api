@@ -13,7 +13,7 @@ namespace App\Controllers\Api;
 
 use Duomai\CpsClient\Client;
 use App\Controllers\Controller;
-use Lib\cache\redisLib;
+use Lib\Cache\RedisLib;
 use Library\Bootstrap;
 
 class Index extends Controller
@@ -351,7 +351,7 @@ class Index extends Controller
      */
     private function redisGet($key)
     {
-        $cache = new redisLib();
+        $cache = new RedisLib();
         return $cache->redis->get($key);
     }
 
@@ -364,7 +364,7 @@ class Index extends Controller
      */
     private function redisSet($key, $data)
     {
-        $cache = new redisLib();
+        $cache = new RedisLib();
         $data = json_encode($data, JSON_UNESCAPED_UNICODE);
         $cache->redis->set($key, $data, 'EX', $this->ttl);
     }
