@@ -18,11 +18,16 @@ use Library\DB\Redis;
 
 class Index extends Controller
 {
+    private $drive = 'redis';
+    private $redisConfig;
+    public $redis;
+
+
     private $client;
 
     private $config;
 
-    private $allowPlatform = ['jd', 'pdd', 'suning', 'youzan', 'alimama', 'kaola', 'vip', 'b1688'];
+    private $allowPlatform = ['custom', 'jd', 'pdd', 'suning', 'youzan', 'alimama', 'kaola', 'vip', 'b1688'];
 
     // 缓存相关
     private $pre = 'ganfanzu:lists';
@@ -33,8 +38,6 @@ class Index extends Controller
         error_reporting(0);
 
         $this->config = Bootstrap::$config['duomai'];
-
-        // 初始化 配置信息
         $config = [
             'host' => $this->config['host'],
             'auth' => [
@@ -42,6 +45,18 @@ class Index extends Controller
                 'app_secret' => $this->config['appSecret'],
             ]
         ];
+
+        $this->redisConfig = Bootstrap::$config['cache'][$this->drive];
+        $param = [
+            'scheme' => 'tcp',
+            'host'   => $this->redisConfig['host'],
+            'port'   => $this->redisConfig['port'],
+        ];
+
+        if (!$this->redis) {
+            $this->redis = new \Predis\Client($param);
+        }
+
         if (!$this->client) {
             $this->client = new Client($config);
         }
@@ -81,6 +96,10 @@ class Index extends Controller
 
         if (!in_array($platform, $this->allowPlatform)) {
             return $this->jsonResponse([], false, 'no support this platform');
+        }
+
+        if ($platform == 'custom') {
+            return $this->jsonResponse([]);
         }
 
         try {
@@ -351,8 +370,7 @@ class Index extends Controller
      */
     private function redisGet($key)
     {
-        $cache = new Redis();
-        return $cache->redis->get($key);
+        return $this->redis->get($key);
     }
 
     /**
@@ -364,9 +382,8 @@ class Index extends Controller
      */
     private function redisSet($key, $data)
     {
-        $cache = new Redis();
         $data = json_encode($data, JSON_UNESCAPED_UNICODE);
-        $cache->redis->set($key, $data, 'EX', $this->ttl);
+        $this->redis->set($key, $data, 'EX', $this->ttl);
     }
 
 
