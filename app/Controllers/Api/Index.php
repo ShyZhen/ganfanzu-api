@@ -212,6 +212,35 @@ class Index extends Controller
     }
 
     /**
+     * 根据item_id获取详情（与list中的一样）
+     */
+    public function getDetail()
+    {
+        $platform = $this->request('platform');
+        $query = $this->request('item_id');
+
+        if (!in_array($platform, $this->allowPlatform)) {
+            return $this->jsonResponse([], false, 'no support this platform');
+        }
+
+        try {
+            $api = "cps-mesh.cpslink.{$platform}.products.detail";
+
+            if (!$query) {
+                return $this->jsonResponse([], false, 'item_id required');
+            }
+
+            $data = $this->client->Request($api, [
+                'id' => $query
+            ]);
+
+            return $this->jsonResponse($data);
+        } catch (\Exception $exception) {
+            return $this->jsonResponse([], false, 'network error');
+        }
+    }
+
+    /**
      * 转链 返回小程序url
      *
      * @return void
@@ -248,6 +277,11 @@ class Index extends Controller
     {
         $itemUrls = ['data' => [
             [
+                'item_id' => '100007827998',
+                'coupon' => 'https://coupon.jd.com/ilink/couponSendFront/send_index.action?key=548ce38b10244309ae7d1c4f07b916dc&roleId=47024698&to=https://book.jd.com,https://pro.m.jd.com/mall/active/3u1Q7ZjCfQKrRb52c623WNf3Cjz5/index.html',
+                'coupon_price' => '10',
+                'platform' => 'jd',
+
                 'item_url' => 'https://item.jd.com/100007827998.html',
                 'short_url' => 'https://u.jd.com/uoPViuu',
                 'seller_name' => '京东超市',
@@ -259,6 +293,11 @@ class Index extends Controller
                 'wx_path' => 'pages/union/proxy/proxy?spreadUrl=https%3A%2F%2Funion-click.jd.com%2Fjdc%3Fe%3D16282%26p%3DAyIGZRhcFAQbBlQeXBwyEgZUGloTCxEBXRNSJUZNXwtEa0xHV0YXEEULWldTCQQAQB1AWQkFWxQDEwZTElgTChoOSkIeSV8iDwwSX0N2cEE2fDlDABUGNR0JfWprUVkXaxIHFQFcEl4RMhIAVhJYJQcSAlITXBIBIgdUKxl7WUdpUhNfFAZCAAZPXxAEGzdUK1sSAhYFUBNbEQQXBVUrWx0FItPAsIOelUBGF8LrsNS4qWUraxYyEgBWElglMhI3VisFewNBBAZPDhJRfF0JGBISWlReOxlYEwEUDlMrWRQDEAU%253D&EA_PTAG=17078.27.503',
             ],
             [
+                'item_id' => '65443604411',
+                'coupon' => '',
+                'coupon_price' => '',
+                'platform' => 'jd',
+
                 'item_url' => 'https://item.jd.com/65443604411.html',
                 'short_url' => 'https://u.jd.com/uJu6TNd',
                 'seller_name' => '京东超市',
@@ -270,6 +309,11 @@ class Index extends Controller
                 'wx_path' => 'pages/union/proxy/proxy?spreadUrl=https%3A%2F%2Funion-click.jd.com%2Fjdc%3Fe%3D16282%26p%3DAyIGZRhcFgURBFwaWhcyFQNQHlkSAxcCVRtrUV1KWQorAlBHU0VeBUVNR0ZbSkAOClBMW0scXxAHEABUHl4VAg1eEEcGJVtqABcbPVdickUjeDNieW1%252BMkUNbnIeC2UcXhIEGw5QH2sVBREOViteFAEUAFUTWCUCEzcUdV0WBBcGZRprFQUSAl0TWRwLGwFRHGsVChU3gY7wzYmFVRRZgqWnxK37K2slASIHUhhSFjIiB2UYa0tsE1RWSAwRCxRpD0YSFV1VQ1J1WRYGFANdGGsXAxMFVw%253D%253D&EA_PTAG=17078.27.503',
             ],
             [
+                'item_id' => '7532054',
+                'coupon' => 'https://coupon.jd.com/ilink/couponSendFront/send_index.action?key=g4uci3dbe02403194e7d1c4f07b916dc&roleId=47024698&to=https://book.jd.com,https://pro.m.jd.com/mall/active/3u1Q7ZjCfQKrRb52c623WNf3Cjz5/index.html',
+                'coupon_price' => '10',
+                'platform' => 'jd',
+
                 'item_url' => 'https://item.jd.com/7532054.html',
                 'short_url' => 'https://u.jd.com/urPJ210',
                 'seller_name' => '京东超市',
@@ -281,6 +325,11 @@ class Index extends Controller
                 'wx_path' => 'pages/union/proxy/proxy?spreadUrl=https%3A%2F%2Funion-click.jd.com%2Fjdc%3Fe%3D16282%26p%3DAyIGZRprEwYQBFQfXiVGTV8LRGtMR1dGFxBFC1pXUwkEAEAdQFkJBV0RABEGUR5ETEdOWmVtXxF0ch1QGTscZERdARgdY1xgDiNdVxkyFQJSHVIcBxY3VRxYHAEiAlUeXRQHEARlG1olVHwHVBpaFwAQBlQZaxQyEgBVH1kQChcBVRtYETISD1Irj4CpyozCSRpX26Kig7H1JTIiBGUbXBYLETdlG2sWMkxpVEsLQgoQUFF1AUkBW1JcU1x7ABcEURNYHTIQBlQZWQ%253D%253D&EA_PTAG=17078.27.503',
             ],
             [
+                'item_id' => '71043158714',
+                'coupon' => '',
+                'coupon_price' => '',
+                'platform' => 'jd',
+
                 'item_url' => 'https://item.jd.com/71043158714.html',
                 'short_url' => 'https://u.jd.com/u0P5f8G',
                 'seller_name' => '京东超市',
@@ -292,6 +341,11 @@ class Index extends Controller
                 'wx_path' => 'pages/union/proxy/proxy?spreadUrl=https%3A%2F%2Funion-click.jd.com%2Fjdc%3Fe%3D16282%26p%3DAyIGZRhcFwMSDlQaWhAyFAdUHlkVBhsBVR5rUV1KWQorAlBHU0VeBUVNR0ZbSkAOClBMW0sdWxQHEAdREl0VBw1eEEcGJQcadTNrAhxBd3wBHTJOankCCB0MUVQeC2UcXhIEGw5QH2sVBREOViteFQcUBFQdWCUCEzcUdVsUBxMHVh5bJQMiB1IbXxcHGgFRG1ITASIHXRxrwZe5396MCVRAy7fwzfG7MiI3VitbEgEbBGUrWyUBIlk7GggVVxRQUR01T14RTg4TAVBsEAJQGFoSCyIFVBpZFw%253D%253D&EA_PTAG=17078.27.503',
             ],
             [
+                'item_id' => '100013092738',
+                'coupon' => '',
+                'coupon_price' => '',
+                'platform' => 'jd',
+
                 'item_url' => 'https://item.jd.com/100013092738.html',
                 'short_url' => 'https://u.jd.com/uuPXDQw',
                 'seller_name' => '京东超市',
@@ -303,6 +357,11 @@ class Index extends Controller
                 'wx_path' => 'pages/union/proxy/proxy?spreadUrl=https%3A%2F%2Funion-click.jd.com%2Fjdc%3Fe%3D16282%26p%3DAyIGZRhcFgQUA1MeXhQyEgZUGlsXAxoEUxlSJUZNXwtEa0xHV0YXEEULWldTCQQAQB1AWQkFWxQDEwdXGlMWBBAOSkIeSV8idy9gL3Jnd0c2Yz1MemtTL2YwYF5kd1kXaxIHFQFcEl4RMhIAVhJYJQcSAlMeWhcBIgdUKwh71aOXgJfZzJac396MXBIFIgZlG1wVBhADVBpcFwcbBGUbUxIyxpL%252Bw9CCUFNFjKv%252Bw6i8N2UrWCUCFQRcGGslAiIEZUU1FFERVAFOXEVsSFtWUhpdA0hpVxlYEgUSD2UZWhQAEA%253D%253D&EA_PTAG=17078.27.503',
             ],
             [
+                'item_id' => '100010088575',
+                'coupon' => '',
+                'coupon_price' => '',
+                'platform' => 'jd',
+
                 'item_url' => 'https://item.jd.com/100010088575.html',
                 'short_url' => 'https://u.jd.com/uj0CqMg',
                 'seller_name' => '京东超市',
@@ -314,6 +373,11 @@ class Index extends Controller
                 'wx_path' => 'pages/union/proxy/proxy?spreadUrl=https%3A%2F%2Funion-click.jd.com%2Fjdc%3Fe%3D16282%26p%3DAyIGZRtSFwQbBVYTXxMyEgZUGlsUAxsOUR1fJUZNXwtEa0xHV0YXEEULWldTCQQAQB1AWQkFWxQDEwdUGlIcBhQDSkIeSV8iAF1nPWIKRHg1axNhQ2YZXUM4Z0QTUVkXaxIHFQFcEl4RMhIAVhJYJQcSAlMfUxEBIgdUKxl715mig4zlwomzN1QrWxICFgVRGlgcChoFVStbHQUi08Cwg56VQEYXwuuw1LipZStrFjISAFYSWCUyEjdWKwV7A0EEXBkJQAd8XQkYElFAUkI7GVkQAhsFUStZFAMQBQ%253D%253D&EA_PTAG=17078.27.503',
             ],
             [
+                'item_id' => '10023311281258',
+                'coupon' => '',
+                'coupon_price' => '',
+                'platform' => 'jd',
+
                 'item_url' => 'https://item.jd.com/10023311281258.html',
                 'short_url' => 'https://u.jd.com/srqwSfU',
                 'seller_name' => '京东自营',
@@ -325,6 +389,11 @@ class Index extends Controller
                 'wx_path' => 'pages/union/proxy/proxy?spreadUrl=https%3A%2F%2Funion-click.jd.com%2Fjdc%3Fe%3D16282%26p%3DAyIGZRtSFQoWAlYeWhYyEgZUGFkXAhIEXBtYEQsiQwpDBUoyS0IQWhkeHAxfEE8HCllHGAdFBwsCEwZWGVkVAhEOVRhfHB1LQglGa3AHFBkxSF11Z20ES0QHShwIeg99P2UOHjdSHlwTCxsCUStbEgEbBGUeWRcLFg5QGGsVAyJGOxtaFQUQAFATaxQyEgBVH1MQChcHUB1eFDISD1Irj4CpyozCSRpX26Kig7H1JTIiBGUbXBYLETdlG2sWMkxpVEhbFwcQV1J1AUlQVl1QTwB7ARoEXB5eFQciBVQaWRc%253D&EA_PTAG=17078.27.503',
             ],
             [
+                'item_id' => '100006148569',
+                'coupon' => '',
+                'coupon_price' => '',
+                'platform' => 'jd',
+
                 'item_url' => 'https://item.jd.com/100006148569.html',
                 'short_url' => 'https://u.jd.com/sqqzfTM',
                 'seller_name' => '京东自营',
@@ -336,6 +405,11 @@ class Index extends Controller
                 'wx_path' => 'pages/union/proxy/proxy?spreadUrl=https%3A%2F%2Funion-click.jd.com%2Fjdc%3Fe%3D16282%26p%3DAyIGZRhcFwcSBFEZXBMyEgZUGloSAhcOURxTJUZNXwtEa0xHV0YXEEULWldTCQQAQB1AWQkFWxQDEwZSG14cBhUPSkIeSV8ibgkaBU1ndG4wHVwcSVlULl9YRVpSQVkXaxIHFQFcEl4RMhIAVhJYJQcQBVwcXhIBIgdUKw17AhMGVBpTFAsRAmUaaxUFEgNdHlMRChUBUxNrFQoVN4GO8M2JhVUUWYKlp8St%252BytrJQEiB1IYUhYyIgdlGGtLbBNUVkxTHFUVaQ9HCVFcE0AFdVgdBxIBUBJbJQATBlcZ&EA_PTAG=17078.27.503',
             ],
             [
+                'item_id' => '5175009',
+                'coupon' => '',
+                'coupon_price' => '',
+                'platform' => 'jd',
+
                 'item_url' => 'https://item.jd.com/5175009.html',
                 'short_url' => 'https://u.jd.com/s3qGvxo',
                 'seller_name' => '京东自营',
@@ -347,6 +421,11 @@ class Index extends Controller
                 'wx_path' => 'pages/union/proxy/proxy?spreadUrl=https%3A%2F%2Funion-click.jd.com%2Fjdc%3Fe%3D16282%26p%3DAyIGZRhfFwsWBV0ZUhYyFgdTH1oUCiJDCkMFSjJLQhBaGR4cDF8QTwcKWUcYB0UHCwYSAVEaWh0dS0IJRmtHVFV9BWUYbWISQ08BOhxcFQYjBQJTDh43Uh5cEwsbAlErWxIBGwRlHlkXCxsBXRhrFQMiRTtdBhUKGgJUH1sSMhM3VRxbEQoWBlEeUhYBFjdVE1wl1oesjZDMR0NQ3uW%252Bjb%252BsIjdlGGsVBREOVitrFTIRNwt1WkYBQVNRTg97WE5VEhIMFFB8BF0ZWR0GEQ9lGVoUABA%253D&EA_PTAG=17078.27.503',
             ],
             [
+                'item_id' => '100006711834',
+                'coupon' => 'https://coupon.jd.com/ilink/couponActiveFront/front_index.action?key=gau3ibd0ea510d0399d0185950f5bd93&roleId=47514248&to=https://item.jd.com/100006711834.html,https://item.m.jd.com/product/100006711834.html',
+                'coupon_price' => '5',
+                'platform' => 'jd',
+
                 'item_url' => 'https://item.jd.com/100006711834.html',
                 'short_url' => 'https://u.jd.com/uaJjyxv',
                 'seller_name' => '京东自营',
@@ -384,40 +463,6 @@ class Index extends Controller
     {
         $data = json_encode($data, JSON_UNESCAPED_UNICODE);
         $this->redis->set($key, $data, 'EX', $this->ttl);
-    }
-
-
-
-
-
-
-    /**
-     * 根据item_id获取详情（与list中的一样，已废弃）
-     */
-    public function getDetail()
-    {
-        $platform = $this->request('platform');
-        $query = $this->request('item_id');
-
-        if (!in_array($platform, $this->allowPlatform)) {
-            return $this->jsonResponse([], false, 'no support this platform');
-        }
-
-        try {
-            $api = "cps-mesh.cpslink.{$platform}.products.detail";
-
-            if (!$query) {
-                throw new \Exception('item_id required');
-            }
-
-            $data = $this->client->Request($api, [
-                'id' => $query
-            ]);
-
-            return $this->jsonResponse($data);
-        } catch (\Exception $exception) {
-            return $this->jsonResponse([], false, 'network error');
-        }
     }
 
     /**
