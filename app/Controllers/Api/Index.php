@@ -289,8 +289,6 @@ class Index extends Controller
                 'product_main_picture' => 'https://img.duomai.com/20210310003005_uai9hpux9x.jpg',
                 'product_original_price' => '39.7',
                 'product_coupon_after_price' => '39.7',
-                'wx_appid' => 'wx91d27dbf599dff74',
-                'wx_path' => 'pages/union/proxy/proxy?spreadUrl=https%3A%2F%2Funion-click.jd.com%2Fjdc%3Fe%3D16282%26p%3DAyIGZRhcFAQbBlQeXBwyEgZUGloTCxEBXRNSJUZNXwtEa0xHV0YXEEULWldTCQQAQB1AWQkFWxQDEwZTElgTChoOSkIeSV8iDwwSX0N2cEE2fDlDABUGNR0JfWprUVkXaxIHFQFcEl4RMhIAVhJYJQcSAlITXBIBIgdUKxl7WUdpUhNfFAZCAAZPXxAEGzdUK1sSAhYFUBNbEQQXBVUrWx0FItPAsIOelUBGF8LrsNS4qWUraxYyEgBWElglMhI3VisFewNBBAZPDhJRfF0JGBISWlReOxlYEwEUDlMrWRQDEAU%253D&EA_PTAG=17078.27.503',
             ],
             [
                 'item_id' => '65443604411',
@@ -305,8 +303,6 @@ class Index extends Controller
                 'product_main_picture' => 'https://img14.360buyimg.com/pop/jfs/t1/156249/13/11903/95705/603c60c1E7d736c31/a3629165ecea4a0b.jpg',
                 'product_original_price' => '88',
                 'product_coupon_after_price' => '79.2',
-                'wx_appid' => 'wx91d27dbf599dff74',
-                'wx_path' => 'pages/union/proxy/proxy?spreadUrl=https%3A%2F%2Funion-click.jd.com%2Fjdc%3Fe%3D16282%26p%3DAyIGZRhcFgURBFwaWhcyFQNQHlkSAxcCVRtrUV1KWQorAlBHU0VeBUVNR0ZbSkAOClBMW0scXxAHEABUHl4VAg1eEEcGJVtqABcbPVdickUjeDNieW1%252BMkUNbnIeC2UcXhIEGw5QH2sVBREOViteFAEUAFUTWCUCEzcUdV0WBBcGZRprFQUSAl0TWRwLGwFRHGsVChU3gY7wzYmFVRRZgqWnxK37K2slASIHUhhSFjIiB2UYa0tsE1RWSAwRCxRpD0YSFV1VQ1J1WRYGFANdGGsXAxMFVw%253D%253D&EA_PTAG=17078.27.503',
             ],
             [
                 'item_id' => '7532054',
@@ -321,8 +317,6 @@ class Index extends Controller
                 'product_main_picture' => 'https://img.duomai.com/20210305003005_jdqls1ga4u.jpg',
                 'product_original_price' => '11.8',
                 'product_coupon_after_price' => '11.8',
-                'wx_appid' => 'wx91d27dbf599dff74',
-                'wx_path' => 'pages/union/proxy/proxy?spreadUrl=https%3A%2F%2Funion-click.jd.com%2Fjdc%3Fe%3D16282%26p%3DAyIGZRprEwYQBFQfXiVGTV8LRGtMR1dGFxBFC1pXUwkEAEAdQFkJBV0RABEGUR5ETEdOWmVtXxF0ch1QGTscZERdARgdY1xgDiNdVxkyFQJSHVIcBxY3VRxYHAEiAlUeXRQHEARlG1olVHwHVBpaFwAQBlQZaxQyEgBVH1kQChcBVRtYETISD1Irj4CpyozCSRpX26Kig7H1JTIiBGUbXBYLETdlG2sWMkxpVEsLQgoQUFF1AUkBW1JcU1x7ABcEURNYHTIQBlQZWQ%253D%253D&EA_PTAG=17078.27.503',
             ],
             [
                 'item_id' => '71043158714',
@@ -337,8 +331,6 @@ class Index extends Controller
                 'product_main_picture' => 'https://img14.360buyimg.com/pop/jfs/t1/170932/15/193/124151/5fed8b8fEf030f771/6004c08ef8232078.jpg',
                 'product_original_price' => '50.9',
                 'product_coupon_after_price' => '50.9',
-                'wx_appid' => 'wx91d27dbf599dff74',
-                'wx_path' => 'pages/union/proxy/proxy?spreadUrl=https%3A%2F%2Funion-click.jd.com%2Fjdc%3Fe%3D16282%26p%3DAyIGZRhcFwMSDlQaWhAyFAdUHlkVBhsBVR5rUV1KWQorAlBHU0VeBUVNR0ZbSkAOClBMW0sdWxQHEAdREl0VBw1eEEcGJQcadTNrAhxBd3wBHTJOankCCB0MUVQeC2UcXhIEGw5QH2sVBREOViteFQcUBFQdWCUCEzcUdVsUBxMHVh5bJQMiB1IbXxcHGgFRG1ITASIHXRxrwZe5396MCVRAy7fwzfG7MiI3VitbEgEbBGUrWyUBIlk7GggVVxRQUR01T14RTg4TAVBsEAJQGFoSCyIFVBpZFw%253D%253D&EA_PTAG=17078.27.503',
             ],
             [
                 'item_id' => '100013092738',
@@ -353,8 +345,6 @@ class Index extends Controller
                 'product_main_picture' => 'https://img14.360buyimg.com/pop/jfs/t1/128668/4/158/114678/5eb3afeeE9fbd70dd/1812bec81f667323.jpg',
                 'product_original_price' => '54.8',
                 'product_coupon_after_price' => '45.9',
-                'wx_appid' => 'wx91d27dbf599dff74',
-                'wx_path' => 'pages/union/proxy/proxy?spreadUrl=https%3A%2F%2Funion-click.jd.com%2Fjdc%3Fe%3D16282%26p%3DAyIGZRhcFgQUA1MeXhQyEgZUGlsXAxoEUxlSJUZNXwtEa0xHV0YXEEULWldTCQQAQB1AWQkFWxQDEwdXGlMWBBAOSkIeSV8idy9gL3Jnd0c2Yz1MemtTL2YwYF5kd1kXaxIHFQFcEl4RMhIAVhJYJQcSAlMeWhcBIgdUKwh71aOXgJfZzJac396MXBIFIgZlG1wVBhADVBpcFwcbBGUbUxIyxpL%252Bw9CCUFNFjKv%252Bw6i8N2UrWCUCFQRcGGslAiIEZUU1FFERVAFOXEVsSFtWUhpdA0hpVxlYEgUSD2UZWhQAEA%253D%253D&EA_PTAG=17078.27.503',
             ],
             [
                 'item_id' => '100010088575',
@@ -369,8 +359,6 @@ class Index extends Controller
                 'product_main_picture' => 'https://img14.360buyimg.com/pop/jfs/t1/167166/25/3508/253690/600e86f6Eb73ff38c/b97e52ded2badcab.jpg',
                 'product_original_price' => '89',
                 'product_coupon_after_price' => '89',
-                'wx_appid' => 'wx91d27dbf599dff74',
-                'wx_path' => 'pages/union/proxy/proxy?spreadUrl=https%3A%2F%2Funion-click.jd.com%2Fjdc%3Fe%3D16282%26p%3DAyIGZRtSFwQbBVYTXxMyEgZUGlsUAxsOUR1fJUZNXwtEa0xHV0YXEEULWldTCQQAQB1AWQkFWxQDEwdUGlIcBhQDSkIeSV8iAF1nPWIKRHg1axNhQ2YZXUM4Z0QTUVkXaxIHFQFcEl4RMhIAVhJYJQcSAlMfUxEBIgdUKxl715mig4zlwomzN1QrWxICFgVRGlgcChoFVStbHQUi08Cwg56VQEYXwuuw1LipZStrFjISAFYSWCUyEjdWKwV7A0EEXBkJQAd8XQkYElFAUkI7GVkQAhsFUStZFAMQBQ%253D%253D&EA_PTAG=17078.27.503',
             ],
             [
                 'item_id' => '10023311281258',
@@ -385,8 +373,6 @@ class Index extends Controller
                 'product_main_picture' => 'https://img14.360buyimg.com/pop/jfs/t1/132475/39/12999/93848/5f8e7e94E073f6f09/c622caf4c5bac620.jpg',
                 'product_original_price' => '67.9',
                 'product_coupon_after_price' => '67.9',
-                'wx_appid' => 'wx91d27dbf599dff74',
-                'wx_path' => 'pages/union/proxy/proxy?spreadUrl=https%3A%2F%2Funion-click.jd.com%2Fjdc%3Fe%3D16282%26p%3DAyIGZRtSFQoWAlYeWhYyEgZUGFkXAhIEXBtYEQsiQwpDBUoyS0IQWhkeHAxfEE8HCllHGAdFBwsCEwZWGVkVAhEOVRhfHB1LQglGa3AHFBkxSF11Z20ES0QHShwIeg99P2UOHjdSHlwTCxsCUStbEgEbBGUeWRcLFg5QGGsVAyJGOxtaFQUQAFATaxQyEgBVH1MQChcHUB1eFDISD1Irj4CpyozCSRpX26Kig7H1JTIiBGUbXBYLETdlG2sWMkxpVEhbFwcQV1J1AUlQVl1QTwB7ARoEXB5eFQciBVQaWRc%253D&EA_PTAG=17078.27.503',
             ],
             [
                 'item_id' => '100006148569',
@@ -401,8 +387,6 @@ class Index extends Controller
                 'product_main_picture' => 'https://img14.360buyimg.com/pop/jfs/t1/150811/17/12309/95683/5fe53e1dE6c4e9266/a43c2075f60be8db.jpg',
                 'product_original_price' => '69',
                 'product_coupon_after_price' => '69',
-                'wx_appid' => 'wx91d27dbf599dff74',
-                'wx_path' => 'pages/union/proxy/proxy?spreadUrl=https%3A%2F%2Funion-click.jd.com%2Fjdc%3Fe%3D16282%26p%3DAyIGZRhcFwcSBFEZXBMyEgZUGloSAhcOURxTJUZNXwtEa0xHV0YXEEULWldTCQQAQB1AWQkFWxQDEwZSG14cBhUPSkIeSV8ibgkaBU1ndG4wHVwcSVlULl9YRVpSQVkXaxIHFQFcEl4RMhIAVhJYJQcQBVwcXhIBIgdUKw17AhMGVBpTFAsRAmUaaxUFEgNdHlMRChUBUxNrFQoVN4GO8M2JhVUUWYKlp8St%252BytrJQEiB1IYUhYyIgdlGGtLbBNUVkxTHFUVaQ9HCVFcE0AFdVgdBxIBUBJbJQATBlcZ&EA_PTAG=17078.27.503',
             ],
             [
                 'item_id' => '5175009',
@@ -417,8 +401,6 @@ class Index extends Controller
                 'product_main_picture' => 'https://img14.360buyimg.com/pop/jfs/t1/154716/5/10135/144782/5fdabe74E73743983/d9990d8a10472a40.jpg',
                 'product_original_price' => '34',
                 'product_coupon_after_price' => '34',
-                'wx_appid' => 'wx91d27dbf599dff74',
-                'wx_path' => 'pages/union/proxy/proxy?spreadUrl=https%3A%2F%2Funion-click.jd.com%2Fjdc%3Fe%3D16282%26p%3DAyIGZRhfFwsWBV0ZUhYyFgdTH1oUCiJDCkMFSjJLQhBaGR4cDF8QTwcKWUcYB0UHCwYSAVEaWh0dS0IJRmtHVFV9BWUYbWISQ08BOhxcFQYjBQJTDh43Uh5cEwsbAlErWxIBGwRlHlkXCxsBXRhrFQMiRTtdBhUKGgJUH1sSMhM3VRxbEQoWBlEeUhYBFjdVE1wl1oesjZDMR0NQ3uW%252Bjb%252BsIjdlGGsVBREOVitrFTIRNwt1WkYBQVNRTg97WE5VEhIMFFB8BF0ZWR0GEQ9lGVoUABA%253D&EA_PTAG=17078.27.503',
             ],
             [
                 'item_id' => '100006711834',
@@ -433,8 +415,6 @@ class Index extends Controller
                 'product_main_picture' => 'https://img14.360buyimg.com/pop/jfs/t1/159756/3/11754/239736/6046d83dEd651b0b9/2d81199fa87ad24d.jpg',
                 'product_original_price' => '42.9',
                 'product_coupon_after_price' => '36.9',
-                'wx_appid' => 'wx91d27dbf599dff74',
-                'wx_path' => 'pages/union/proxy/proxy?spreadUrl=https%3A%2F%2Funion-click.jd.com%2Fjdc%3Fe%3D16282%26p%3DAyIGZRhfEAMQAFYSWhIyEgZUGloSBBIHXBleJUZNXwtEa0xHV0YXEEULWldTCQQAQB1AWQkFWxQDEwZSHVsVCxACSkIeSV8ich5hRUgGVwA3UAcLAHJ1IEk7VXsbUVkXaxIHFQFcEl4RMhIAVhJYJQcSDlYZUxUBIgdUKw17AhMGVBpbEgYbAmUaaxUFEgNQH18dARoFUR1rFQoVN4GO8M2JhVUUWYKlp8St%252BytrJQEiB1IYUhYyIgdlGGtLbBNUVUtSQQAVaQ9HXktBE1tTdVIWAhICUxtrFwMTBVc%253D&EA_PTAG=17078.27.503',
             ],
         ]];
 
