@@ -91,7 +91,7 @@ class Index extends Controller
     public function getQueryList()
     {
         $platform = $this->request('platform');
-        $query = $this->request('query');
+        $query = $this->request('query', '下饭');
         $page = (int) $this->request('page') ?: 1;
 
         if (!in_array($platform, $this->allowPlatform)) {
