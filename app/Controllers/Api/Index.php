@@ -276,13 +276,13 @@ class Index extends Controller
      */
     public function getCustomProduct()
     {
-        /*
         $itemUrls = ['data' => [
             [
                 'item_id' => '100007827998',
                 'coupon' => 'https://coupon.jd.com/ilink/couponSendFront/send_index.action?key=548ce38b10244309ae7d1c4f07b916dc&roleId=47024698&to=https://book.jd.com,https://pro.m.jd.com/mall/active/3u1Q7ZjCfQKrRb52c623WNf3Cjz5/index.html',
                 'coupon_price' => '10',
                 'platform' => 'jd',
+
                 'item_url' => 'https://item.jd.com/100007827998.html',
                 'short_url' => 'https://u.jd.com/uoPViuu',
                 'seller_name' => '京东超市',
@@ -296,6 +296,7 @@ class Index extends Controller
                 'coupon' => '',
                 'coupon_price' => '',
                 'platform' => 'jd',
+
                 'item_url' => 'https://item.jd.com/65443604411.html',
                 'short_url' => 'https://u.jd.com/uJu6TNd',
                 'seller_name' => '京东超市',
@@ -304,12 +305,121 @@ class Index extends Controller
                 'product_original_price' => '88',
                 'product_coupon_after_price' => '79.2',
             ],
+            [
+                'item_id' => '7532054',
+                'coupon' => 'https://coupon.jd.com/ilink/couponSendFront/send_index.action?key=g4uci3dbe02403194e7d1c4f07b916dc&roleId=47024698&to=https://book.jd.com,https://pro.m.jd.com/mall/active/3u1Q7ZjCfQKrRb52c623WNf3Cjz5/index.html',
+                'coupon_price' => '10',
+                'platform' => 'jd',
+
+                'item_url' => 'https://item.jd.com/7532054.html',
+                'short_url' => 'https://u.jd.com/urPJ210',
+                'seller_name' => '京东超市',
+                'product_title' => '卜珂零点 雪花酥蔓越莓味 110g 牛轧糖奶芙沙琪玛手工网红甜品办公室零食小吃糕点早餐',
+                'product_main_picture' => 'https://img.duomai.com/20210305003005_jdqls1ga4u.jpg',
+                'product_original_price' => '11.8',
+                'product_coupon_after_price' => '11.8',
+            ],
+            [
+                'item_id' => '71043158714',
+                'coupon' => '',
+                'coupon_price' => '',
+                'platform' => 'jd',
+
+                'item_url' => 'https://item.jd.com/71043158714.html',
+                'short_url' => 'https://u.jd.com/u0P5f8G',
+                'seller_name' => '京东超市',
+                'product_title' => '百事可乐 碳酸汽水饮料330*24听 细长罐 Pepsi百事出品 新老包装随机发',
+                'product_main_picture' => 'https://img14.360buyimg.com/pop/jfs/t1/170932/15/193/124151/5fed8b8fEf030f771/6004c08ef8232078.jpg',
+                'product_original_price' => '50.9',
+                'product_coupon_after_price' => '50.9',
+            ],
+            [
+                'item_id' => '100013092738',
+                'coupon' => '',
+                'coupon_price' => '',
+                'platform' => 'jd',
+
+                'item_url' => 'https://item.jd.com/100013092738.html',
+                'short_url' => 'https://u.jd.com/uuPXDQw',
+                'seller_name' => '京东超市',
+                'product_title' => '西麦 西澳阳光 水果燕麦片 营养代餐 麦片早餐  酸奶伴侣 干吃零食 轻食非油炸 酸奶果粒烘焙燕麦片350g',
+                'product_main_picture' => 'https://img14.360buyimg.com/pop/jfs/t1/128668/4/158/114678/5eb3afeeE9fbd70dd/1812bec81f667323.jpg',
+                'product_original_price' => '54.8',
+                'product_coupon_after_price' => '45.9',
+            ],
+            [
+                'item_id' => '100010088575',
+                'coupon' => '',
+                'coupon_price' => '',
+                'platform' => 'jd',
+
+                'item_url' => 'https://item.jd.com/100010088575.html',
+                'short_url' => 'https://u.jd.com/uj0CqMg',
+                'seller_name' => '京东超市',
+                'product_title' => '希腊进口哇尔塔Epsa混合果汁汽水果汁型碳酸饮料232ml*6瓶 玻璃瓶装饮品',
+                'product_main_picture' => 'https://img14.360buyimg.com/pop/jfs/t1/167166/25/3508/253690/600e86f6Eb73ff38c/b97e52ded2badcab.jpg',
+                'product_original_price' => '89',
+                'product_coupon_after_price' => '89',
+            ],
+            [
+                'item_id' => '10023311281258',
+                'coupon' => '',
+                'coupon_price' => '',
+                'platform' => 'jd',
+
+                'item_url' => 'https://item.jd.com/10023311281258.html',
+                'short_url' => 'https://u.jd.com/srqwSfU',
+                'seller_name' => '京东自营',
+                'product_title' => '乐小蜜 油菜蜂花粉 破壁蜂花粉 180克瓶装 食用蜂蜜花粉',
+                'product_main_picture' => 'https://img14.360buyimg.com/pop/jfs/t1/132475/39/12999/93848/5f8e7e94E073f6f09/c622caf4c5bac620.jpg',
+                'product_original_price' => '67.9',
+                'product_coupon_after_price' => '67.9',
+            ],
+            [
+                'item_id' => '100006148569',
+                'coupon' => '',
+                'coupon_price' => '',
+                'platform' => 'jd',
+
+                'item_url' => 'https://item.jd.com/100006148569.html',
+                'short_url' => 'https://u.jd.com/sqqzfTM',
+                'seller_name' => '京东自营',
+                'product_title' => '君乐宝简醇梦幻盖 0添加蔗糖 高端风味酸牛奶250g*10礼盒装',
+                'product_main_picture' => 'https://img14.360buyimg.com/pop/jfs/t1/150811/17/12309/95683/5fe53e1dE6c4e9266/a43c2075f60be8db.jpg',
+                'product_original_price' => '69',
+                'product_coupon_after_price' => '69',
+            ],
+            [
+                'item_id' => '5175009',
+                'coupon' => '',
+                'coupon_price' => '',
+                'platform' => 'jd',
+
+                'item_url' => 'https://item.jd.com/5175009.html',
+                'short_url' => 'https://u.jd.com/s3qGvxo',
+                'seller_name' => '京东自营',
+                'product_title' => '海底捞 自热火锅方便速食 清油麻辣嫩牛自煮自嗨小火锅懒人食品零食435g',
+                'product_main_picture' => 'https://img14.360buyimg.com/pop/jfs/t1/154716/5/10135/144782/5fdabe74E73743983/d9990d8a10472a40.jpg',
+                'product_original_price' => '34',
+                'product_coupon_after_price' => '34',
+            ],
+            [
+                'item_id' => '100006711834',
+                'coupon' => 'https://coupon.jd.com/ilink/couponActiveFront/front_index.action?key=gau3ibd0ea510d0399d0185950f5bd93&roleId=47514248&to=https://item.jd.com/100006711834.html,https://item.m.jd.com/product/100006711834.html',
+                'coupon_price' => '5',
+                'platform' => 'jd',
+
+                'item_url' => 'https://item.jd.com/100006711834.html',
+                'short_url' => 'https://u.jd.com/uaJjyxv',
+                'seller_name' => '京东自营',
+                'product_title' => '青源堂 红枸杞子 500克家庭装 宁夏头茬免洗特级中宁枸杞子茶 滋补品送礼物精洗苟杞子黑枸杞',
+                'product_main_picture' => 'https://img14.360buyimg.com/pop/jfs/t1/159756/3/11754/239736/6046d83dEd651b0b9/2d81199fa87ad24d.jpg',
+                'product_original_price' => '42.9',
+                'product_coupon_after_price' => '36.9',
+            ],
         ]];
 
         return $this->jsonResponse($itemUrls);
-        */
-
-        return $this->getQueryList('jd');
     }
 
     /**
