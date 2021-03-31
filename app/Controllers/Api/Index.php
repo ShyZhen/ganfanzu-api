@@ -87,10 +87,11 @@ class Index extends Controller
     /**
      * 搜索列表
      * platform query
+     * @param string $p
      */
-    public function getQueryList()
+    public function getQueryList($p = '')
     {
-        $platform = $this->request('platform');
+        $platform = $this->request('platform', $p);
         $query = $this->request('query', '下饭');
         $page = (int) $this->request('page') ?: 1;
 
@@ -308,7 +309,7 @@ class Index extends Controller
         return $this->jsonResponse($itemUrls);
         */
 
-        return $this->getQueryList();
+        return $this->getQueryList('jd');
     }
 
     /**
