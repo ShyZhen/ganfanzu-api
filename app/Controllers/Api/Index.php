@@ -423,6 +423,35 @@ class Index extends Controller
     }
 
     /**
+     * 获取图文详情
+     */
+    public function getHtml()
+    {
+        $platform = $this->request('platform');
+        $itemId = $this->request('item_id');
+
+        if (!in_array($platform, $this->allowPlatform)) {
+            return $this->jsonResponse([], false, 'no support this platform');
+        }
+
+        try {
+            $api = "cps-mesh.cpslink.{$platform}.desc.get";
+
+            if (!$itemId) {
+                return $this->jsonResponse([], false, 'item_id required');
+            }
+
+            $data = $this->client->Request($api, [
+                'id' => $itemId
+            ]);
+
+            return $this->jsonResponse($data);
+        } catch (\Exception $exception) {
+            return $this->jsonResponse([], false, 'network error');
+        }
+    }
+
+    /**
      * 列表加入缓存，2小时失效
      *
      * @param $key
